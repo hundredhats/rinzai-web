@@ -6,10 +6,10 @@ class List extends Component {
   render() {
     return (
       <div className="List">
-        <h2>List of Testing</h2>
-        <Todo />
-        <Todo />
-        <Todo />
+        <h2>{ this.props.name }</h2>
+        <Todo description="Todo 1" />
+        <Todo description="Todo 2" />
+        <Todo description="Todo 3" />
       </div>
     )
   }

@@ -10,7 +10,7 @@ class App extends Component {
         <header>
           <h1>Rinzai</h1>
 
-          <List />
+          <List name="Test list"/>
         </header>
       </div>
     );
