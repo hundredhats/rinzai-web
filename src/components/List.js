@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import './css/List.css';
 import Todo from './Todo.js';
 
-const mapStateToProps = state => {
-  return { todos: state.todos };
+const mapStateToProps = (state, ownProps) => {
+  return { todos: state.todos.filter(todo => todo.listId === ownProps.id) };
 };
 
 class ConnectedList extends Component {
@@ -15,7 +15,7 @@ class ConnectedList extends Component {
         <h2>{ this.props.name }</h2>
 
         {this.props.todos.map(todo => (
-          <Todo key={todo.id} description={todo.description} />
+          <Todo key={todo.id} id={todo.id} description={todo.description} />
         ))}
       </div>
     )

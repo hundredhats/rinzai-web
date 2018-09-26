@@ -15,7 +15,7 @@ class ConnectedApp extends Component {
           <h1>Rinzai</h1>
 
           {this.props.lists.map(list => (
-            <List key={list.id} name={list.name} />
+            <List key={list.id} id={list.id} name={list.name} />
           ))}
         </header>
       </div>
