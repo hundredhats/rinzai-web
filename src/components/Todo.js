@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './css/Todo.css';
 
 class Todo extends Component {
@@ -10,5 +11,10 @@ class Todo extends Component {
     )
   }
 }
+
+Todo.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string
+};
 
 export default Todo;
