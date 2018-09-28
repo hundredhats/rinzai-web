@@ -12,11 +12,18 @@ class ConnectedList extends Component {
   render() {
     return (
       <div className="List">
-        <h2>{ this.props.name }</h2>
+        <div className="TodosContainer">
+          <h2>{ this.props.name }</h2>
 
-        {this.props.todos.map(todo => (
-          <Todo key={todo.id} id={todo.id} description={todo.description} />
-        ))}
+          {this.props.todos.map(todo => (
+            <Todo key={todo.id} id={todo.id} description={todo.description} />
+          ))}
+        </div>
+
+        <form className="NewTodoForm">
+          <input type="text" />
+          <input type="submit" value="Add" />
+        </form>
       </div>
     )
   }

@@ -2,15 +2,22 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: #F8D3AF;
+}
+
 .App {
-  color: #273043;
+  color: #1B150F;
   font-size: 18px;
+  font-family: sans-serif;
 }
 
 header {
   padding: 20px;
-  color: #FFF;
-  background-color: #273043;
+  color: #F7F4F1;
+  background-color: #1B150F;
 }
 
 .ListContainer {

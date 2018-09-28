@@ -1,12 +1,41 @@
 .List {
-  color: #FFF;
-  background-color: #273043;
+  color: #F7F4F1;
+  background-color: #1B150F;
   display: inline-block;
   width: 500px;
   min-height: 300px;
   max-width: 100%;
+  margin: 20px;
+  box-shadow: 0 2px 5px #1B150F;
+}
+
+.TodosContainer {
   margin: 10px;
   padding: 20px 50px;
+}
+
+.NewTodoForm {
+  width: 100%;
+}
+
+.NewTodoForm input {
+  background-color: #FFF;
+  font-size: 1rem;
+  padding: 15px 30px;
+  border: none;
+}
+
+.NewTodoForm input[type="text"] {
+  width: 75%;
+  background-color: #FFF;
+}
+
+.NewTodoForm input[type="submit"] {
+  width: 25%;
+  cursor: pointer;
+  background-color: #FF9A35;
+  color: #1B150F;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 400px) {
