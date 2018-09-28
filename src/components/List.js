@@ -8,7 +8,41 @@ const mapStateToProps = (state, ownProps) => {
   return { todos: state.todos.filter(todo => todo.listId === ownProps.id) };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addTodo: todo => dispatch({
+      type: 'ADD_TODO',
+      payload: {
+        // id: todo.id,
+        listId: todo.listId,
+        description: todo.description
+      }
+    })
+  }
+};
+
 class ConnectedList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { newTodo: '' };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ newTodo: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.addTodo({
+      description: this.state.newTodo,
+      listId: this.props.id
+      // id: 100
+    })
+    this.setState({ newTodo: '' });
+  }
+
   render() {
     return (
       <div className="List">
@@ -20,8 +54,8 @@ class ConnectedList extends Component {
           ))}
         </div>
 
-        <form className="NewTodoForm">
-          <input type="text" />
+        <form className="NewTodoForm" onSubmit={this.handleSubmit}>
+          <input type="text" name="newTodo" value={this.state.newTodo} onChange={this.handleChange} />
           <input type="submit" value="Add" />
         </form>
       </div>
@@ -34,6 +68,6 @@ ConnectedList.propTypes = {
   name: PropTypes.string
 };
 
-const List = connect(mapStateToProps)(ConnectedList);
+const List = connect(mapStateToProps, mapDispatchToProps)(ConnectedList);
 
 export default List;
