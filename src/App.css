@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  color: #273043;
+  font-size: 18px;
+}
+
+header {
+  padding: 20px;
+  color: #FFF;
+  background-color: #273043;
+}
+
+.ListContainer {
+  max-width: 1200px;
+  padding: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 400px) {
+  .App {
+    font-size: 16px;
+  }
+}

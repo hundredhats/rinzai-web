@@ -13,11 +13,13 @@ class ConnectedApp extends Component {
       <div className="App">
         <header>
           <h1>Rinzai</h1>
-
-          {this.props.lists.map(list => (
-            <List key={list.id} id={list.id} name={list.name} />
-          ))}
         </header>
+
+          <div className="ListContainer">
+            {this.props.lists.map(list => (
+              <List key={list.id} id={list.id} name={list.name} />
+            ))}
+          </div>
       </div>
     );
   }
