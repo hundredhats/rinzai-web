@@ -4,9 +4,11 @@ import './css/Todo.css';
 
 class Todo extends Component {
   render() {
+    let textClass = this.props.complete ? "complete" : "incomplete";
+
     return (
       <div className="Todo">
-        <p>{ this.props.description }</p>
+        <p className={ textClass }>{ this.props.description }</p>
       </div>
     )
   }
@@ -14,7 +16,8 @@ class Todo extends Component {
 
 Todo.propTypes = {
   id: PropTypes.number,
-  name: PropTypes.string
+  description: PropTypes.string,
+  complete: PropTypes.bool
 };
 
 export default Todo;

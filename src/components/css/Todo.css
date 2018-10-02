@@ -2,4 +2,10 @@
   line-height: 1.25;
   margin: 30px 0;
   border-bottom: 1px solid #EFE0D0;
+  cursor: pointer;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: #8C8C8C;
 }

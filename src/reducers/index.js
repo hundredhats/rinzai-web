@@ -7,12 +7,12 @@ const initialState = {
   ],
 
   todos: [
-    { id: 1, listId: 1, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-    { id: 2, listId: 1, description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-    { id: 3, listId: 2, description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-    { id: 4, listId: 2, description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
-    { id: 5, listId: 2, description: "Short todo" },
-    { id: 6, listId: 3, description: "Short todo two" }
+    { id: 1, listId: 1, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", complete: true },
+    { id: 2, listId: 1, description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", complete: false },
+    { id: 3, listId: 2, description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", complete: false },
+    { id: 4, listId: 2, description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", complete: false },
+    { id: 5, listId: 2, description: "Short todo", complete: false },
+    { id: 6, listId: 3, description: "Short todo two", complete: false }
   ]
 };
 

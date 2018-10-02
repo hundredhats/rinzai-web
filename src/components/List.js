@@ -50,7 +50,7 @@ class ConnectedList extends Component {
           <h2>{ this.props.name }</h2>
 
           {this.props.todos.map(todo => (
-            <Todo key={todo.id} id={todo.id} description={todo.description} />
+            <Todo key={todo.id} id={todo.id} description={todo.description} complete={todo.complete} />
           ))}
         </div>
 
