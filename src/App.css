@@ -20,6 +20,36 @@ header {
   background-color: #1B150F;
 }
 
+.NewListContainer {
+  padding: 20px 40px;
+}
+
+.NewListForm {
+  max-width: 500px;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.NewListForm input {
+  background-color: #FFF;
+  font-size: 1rem;
+  padding: 15px 30px;
+  border: none;
+}
+
+.NewListForm input[type="text"] {
+  width: 75%;
+  background-color: #FFF;
+}
+
+.NewListForm input[type="submit"] {
+  width: 25%;
+  cursor: pointer;
+  background-color: #FF9A35;
+  color: #1B150F;
+  font-weight: bold;
+}
+
 .ListContainer {
   max-width: 1200px;
   padding: 20px;

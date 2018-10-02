@@ -22,11 +22,11 @@ const rootReducer = (state = initialState, action) => {
       // TODO go back to commented out version once using an API/DB to autoassign IDs
       // return { ...state, todos: state.todos.concat(action.payload) };
 
-      const lastId = state.todos[state.todos.length - 1].id;
+      const lastTodoId = state.todos[state.todos.length - 1].id;
       return {
         ...state,
         todos: state.todos.concat({
-          ...action.payload, id: lastId + 1
+          ...action.payload, id: lastTodoId + 1
         })
       };
     case 'TOGGLE_COMPLETE':
@@ -40,6 +40,20 @@ const rootReducer = (state = initialState, action) => {
           return todo;
         })
       }
+    case 'ADD_LIST':
+      // TODO go back to commented out version once using an API/DB to autoassign IDs
+      // return { ...state, lists: state.lists.concat(action.payload) };
+
+      const lastListId = state.lists[state.lists.length - 1].id;
+      return {
+        ...state,
+        lists: state.lists.concat({
+          ...action.payload, id: lastListId + 1
+        })
+      };
+
+      // console.log(action.payload);
+      // return state;
     case 'REMOVE_LIST':
       return {
         ...state,
