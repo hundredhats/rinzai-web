@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 import List from './components/List.js';
+
+library.add(faTimes)
 
 const mapStateToProps = state => {
   return { lists: state.lists };

@@ -40,6 +40,11 @@ const rootReducer = (state = initialState, action) => {
           return todo;
         })
       }
+    case 'REMOVE_LIST':
+      return {
+        ...state,
+        lists: state.lists.filter(list => list.id !== action.payload.id)
+      };
     default:
       return state;
   }

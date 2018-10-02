@@ -1,4 +1,5 @@
 .List {
+  position: relative;
   color: #F7F4F1;
   background-color: #1B150F;
   display: inline-block;
@@ -36,6 +37,17 @@
   background-color: #FF9A35;
   color: #1B150F;
   font-weight: bold;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #FF9A35;
 }
 
 @media screen and (max-width: 400px) {

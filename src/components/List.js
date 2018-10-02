@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './css/List.css';
 import Todo from './Todo.js';
 
@@ -17,6 +18,13 @@ const mapDispatchToProps = dispatch => {
         listId: todo.listId,
         description: todo.description
       }
+    }),
+
+    removeList: list => dispatch({
+      type: 'REMOVE_LIST',
+      payload: {
+        id: list.id
+      }
     })
   }
 };
@@ -27,6 +35,7 @@ class ConnectedList extends Component {
     this.state = { newTodo: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleChange(event) {
@@ -43,9 +52,14 @@ class ConnectedList extends Component {
     this.setState({ newTodo: '' });
   }
 
+  handleClose(event) {
+    this.props.removeList({ id: this.props.id });
+  }
+
   render() {
     return (
       <div className="List">
+        <FontAwesomeIcon icon="times" className="close" onClick={this.handleClose} />
         <div className="TodosContainer">
           <h2>{ this.props.name }</h2>
 
