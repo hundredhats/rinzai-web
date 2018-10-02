@@ -39,7 +39,7 @@ class ConnectedList extends Component {
       description: this.state.newTodo,
       listId: this.props.id
       // id: 100
-    })
+    });
     this.setState({ newTodo: '' });
   }
 
@@ -63,11 +63,11 @@ class ConnectedList extends Component {
   }
 }
 
-ConnectedList.propTypes = {
+const List = connect(mapStateToProps, mapDispatchToProps)(ConnectedList);
+
+List.propTypes = {
   id: PropTypes.number,
   name: PropTypes.string
 };
-
-const List = connect(mapStateToProps, mapDispatchToProps)(ConnectedList);
 
 export default List;

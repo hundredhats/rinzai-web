@@ -29,6 +29,17 @@ const rootReducer = (state = initialState, action) => {
           ...action.payload, id: lastId + 1
         })
       };
+    case 'TOGGLE_COMPLETE':
+      // TODO there must be a more interesting way to do this
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if (todo.id === action.payload.id) {
+            todo.complete = !todo.complete;
+          }
+          return todo;
+        })
+      }
     default:
       return state;
   }
