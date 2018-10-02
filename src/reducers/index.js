@@ -57,7 +57,8 @@ const rootReducer = (state = initialState, action) => {
     case 'REMOVE_LIST':
       return {
         ...state,
-        lists: state.lists.filter(list => list.id !== action.payload.id)
+        lists: state.lists.filter(list => list.id !== action.payload.id),
+        todos: state.todos.filter(todo => todo.listId !== action.payload.id)
       };
     default:
       return state;
