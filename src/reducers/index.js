@@ -51,9 +51,6 @@ const rootReducer = (state = initialState, action) => {
           ...action.payload, id: lastListId + 1
         })
       };
-
-      // console.log(action.payload);
-      // return state;
     case 'REMOVE_LIST':
       return {
         ...state,

@@ -36,6 +36,7 @@ class ConnectedList extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.getRandom = this.getRandom.bind(this);
   }
 
   handleChange(event) {
@@ -56,7 +57,20 @@ class ConnectedList extends Component {
     this.props.removeList({ id: this.props.id });
   }
 
+  getRandom() {
+    let todos = this.props.todos.filter(todo => !todo.complete);
+
+    alert(
+      todos[Math.floor(Math.random() * todos.length)].description
+    );
+  }
+
   render() {
+    let randomButton;
+    if (this.props.todos.length > 1) {
+      randomButton = (<button className="random" onClick={this.getRandom}><FontAwesomeIcon icon="random"/></button>)
+    }
+
     return (
       <div className="List">
         <FontAwesomeIcon icon="times" className="close" onClick={this.handleClose} />
@@ -67,6 +81,8 @@ class ConnectedList extends Component {
             <Todo key={todo.id} id={todo.id} description={todo.description} complete={todo.complete} />
           ))}
         </div>
+
+        {randomButton}
 
         <form className="NewTodoForm" onSubmit={this.handleSubmit}>
           <input type="text" name="newTodo" value={this.state.newTodo} onChange={this.handleChange} />

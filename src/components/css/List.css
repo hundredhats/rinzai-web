@@ -19,7 +19,7 @@
   width: 100%;
 }
 
-.NewTodoForm input {
+.NewTodoForm input, button {
   background-color: #FFF;
   font-size: 1rem;
   padding: 15px 30px;
@@ -31,10 +31,11 @@
   background-color: #FFF;
 }
 
-.NewTodoForm input[type="submit"] {
+.NewTodoForm input[type="submit"], button {
   width: 25%;
   cursor: pointer;
   background-color: #FF9A35;
+  border: none;
   color: #1B150F;
   font-weight: bold;
 }
@@ -48,6 +49,11 @@
 
 .close:hover {
   color: #FF9A35;
+}
+
+.random {
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 @media screen and (max-width: 400px) {
