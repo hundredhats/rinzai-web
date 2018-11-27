@@ -6,7 +6,8 @@ import './css/List.css';
 import Todo from './Todo.js';
 
 const mapStateToProps = (state, ownProps) => {
-  return { todos: state.todos.filter(todo => todo.listId === ownProps.id) };
+  return { todos: state.todos.filter(todo => todo.listId === ownProps.id)
+    .sort((a, b) => a.complete ? 1 : -1 ) };
 };
 
 const mapDispatchToProps = dispatch => {
