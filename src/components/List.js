@@ -21,6 +21,14 @@ const mapDispatchToProps = dispatch => {
       }
     }),
 
+    renameList: list => dispatch({
+      type: 'RENAME_LIST',
+      payload: {
+        id: list.id,
+        name: list.name
+      }
+    }),
+
     removeList: list => dispatch({
       type: 'REMOVE_LIST',
       payload: {
@@ -37,6 +45,8 @@ class ConnectedList extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.renameList = this.renameList.bind(this);
+    this.removeFocus = this.removeFocus.bind(this);
     this.getRandom = this.getRandom.bind(this);
   }
 
@@ -58,6 +68,15 @@ class ConnectedList extends Component {
     this.props.removeList({ id: this.props.id });
   }
 
+  renameList(event) {
+    this.props.renameList({ id: this.props.id, name: event.target.value });
+  }
+
+  removeFocus(event) {
+    event.preventDefault();
+    document.activeElement.blur();
+  }
+
   getRandom() {
     let todos = this.props.todos.filter(todo => !todo.complete);
 
@@ -76,7 +95,9 @@ class ConnectedList extends Component {
       <div className="List">
         <FontAwesomeIcon icon="times" className="close" onClick={this.handleClose} />
         <div className="TodosContainer">
-          <h2>{ this.props.name }</h2>
+          <form onSubmit={this.removeFocus}>
+            <input className="List-name" type="text" value={this.props.name} onChange={this.renameList} />
+          </form>
 
           {this.props.todos.map(todo => (
             <Todo key={todo.id} id={todo.id} description={todo.description} complete={todo.complete} />

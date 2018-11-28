@@ -51,6 +51,16 @@ const rootReducer = (state = initialState, action) => {
           ...action.payload, id: lastListId + 1
         })
       };
+    case 'RENAME_LIST':
+      return {
+        ...state,
+        lists: state.lists.map(list => {
+          if (list.id === action.payload.id) {
+            list.name = action.payload.name;
+          }
+          return list;
+        })
+      };
     case 'REMOVE_LIST':
       return {
         ...state,
