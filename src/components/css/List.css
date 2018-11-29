@@ -52,17 +52,6 @@
   font-weight: bold;
 }
 
-.close {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #FF9A35;
-}
-
 .random {
   width: 100%;
   margin-bottom: 5px;

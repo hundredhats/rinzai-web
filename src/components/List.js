@@ -34,6 +34,11 @@ const mapDispatchToProps = dispatch => {
       payload: {
         id: list.id
       }
+    }),
+
+    showModal: description => dispatch({
+      type: 'SHOW_MODAL',
+      payload: { description: description }
     })
   }
 };
@@ -46,7 +51,6 @@ class ConnectedList extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.renameList = this.renameList.bind(this);
-    this.removeFocus = this.removeFocus.bind(this);
     this.getRandom = this.getRandom.bind(this);
   }
 
@@ -79,8 +83,7 @@ class ConnectedList extends Component {
 
   getRandom() {
     let todos = this.props.todos.filter(todo => !todo.complete);
-
-    alert(
+    this.props.showModal(
       todos[Math.floor(Math.random() * todos.length)].description
     );
   }

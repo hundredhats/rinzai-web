@@ -5,11 +5,12 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faRandom } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 import List from './components/List.js';
+import Modal from './components/Modal.js';
 
 library.add(faTimes, faRandom)
 
 const mapStateToProps = state => {
-  return { lists: state.lists };
+  return { lists: state.lists, modal: state.modal };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -43,11 +44,18 @@ class ConnectedApp extends Component {
   }
 
   render() {
+    let modal = null;
+    if (this.props.modal.show) {
+      modal = <Modal description={ this.props.modal.description } />
+    }
+
     return (
       <div className="App">
         <header>
           <h1>Rinzai</h1>
         </header>
+
+        { modal }
 
         <div className="NewListContainer">
           <form className="NewListForm" onSubmit={this.handleSubmit}>

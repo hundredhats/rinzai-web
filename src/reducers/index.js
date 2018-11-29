@@ -13,7 +13,12 @@ const initialState = {
     { id: 4, listId: 2, description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", complete: false },
     { id: 5, listId: 2, description: "Short todo", complete: true },
     { id: 6, listId: 3, description: "Short todo two", complete: false }
-  ]
+  ],
+
+  modal: {
+    show: false,
+    description: null
+  }
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -30,7 +35,6 @@ const rootReducer = (state = initialState, action) => {
         })
       };
     case 'TOGGLE_COMPLETE':
-      // TODO there must be a more interesting way to do this
       return {
         ...state,
         todos: state.todos.map(todo => {
@@ -66,6 +70,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         lists: state.lists.filter(list => list.id !== action.payload.id),
         todos: state.todos.filter(todo => todo.listId !== action.payload.id)
+      };
+    case 'SHOW_MODAL':
+      return {
+        ...state,
+        modal: { show: true, description: action.payload.description }
+      };
+    case 'HIDE_MODAL':
+      return {
+        ...state,
+        modal: { show: false, description: null }
       };
     default:
       return state;

@@ -1,0 +1,34 @@
+.Modal-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  background-color: rgb(140,140,140, 0.5);
+}
+
+.Modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  background-color: #F7F4F1;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 5px #1B150F;
+}
+
+.Modal-content button {
+  width: 100%;
+}
+
+.Modal-content p {
+  padding: 50px;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.Modal-content .close:hover {
+  color: #8C8C8C;
+}
